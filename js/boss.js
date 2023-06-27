@@ -10,7 +10,7 @@ class Boss {
     this.directionY = 0;
     this.element = document.createElement("img");
 
-    this.element.src = "/resources/img/GrandmasterWarlockIdle.gif";
+    this.element.src = "../resources/img/GrandmasterWarlockIdle.gif";
     this.element.style.position = "absolute";
 
     this.element.style.width = `${this.width}px`;
@@ -21,5 +21,4 @@ class Boss {
 
     this.gameCanvas.appendChild(this.element);
   }
-  
 }

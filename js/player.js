@@ -14,7 +14,7 @@ class Player {
 
     // Player element
     this.element = document.createElement("img");
-    this.element.src = "./resources/img/AdeptNecromancerIdle.gif";
+    this.element.src = "../resources/img/AdeptNecromancerIdle.gif";
     this.element.style.position = "absolute";
     this.element.style.width = `${this.width}px`;
     this.element.style.height = `${this.height}px`;
