@@ -73,7 +73,7 @@ window.addEventListener("load", () => {
   // Event listener for the start button click
   startButton.addEventListener("click", function () {
     startGame();
-    let mySound = new Audio("../resources/sounds/music.mp3");
+    let mySound = new Audio("./resources/sounds/music.mp3");
     mySound.loop = true;
     mySound.volume = 0.5;
 
