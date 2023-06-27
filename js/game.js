@@ -26,7 +26,7 @@ class Game {
     ctx.fillStyle = "white";
 
     const image = new Image();
-    image.src = "../resources/img/finale2.0.png";
+    image.src = "./resources/img/finale2.0.png";
     image.onload = () => {
       ctx.drawImage(image, 0, 0);
     };
