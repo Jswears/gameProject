@@ -7,6 +7,7 @@ class Game {
     this.gameScreen = gameScreen;
     this.gameContainer = document.getElementById("game-container");
     this.gameEndScreen = document.getElementById("game-end");
+    this.getLives = document.getElementById("lives");
     this.player = new Player(this.gameScreen);
     this.boss = new Boss(this.gameScreen);
     this.height = 320;
@@ -21,6 +22,8 @@ class Game {
     this.gameScreen.height = `${this.height}`;
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
+    this.gameContainer.style.display = "block";
+    this.getLives.style.display = "flex";
 
     ctx.fillRect(0, 0, this.width, this.height);
     ctx.fillStyle = "white";

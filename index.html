@@ -4,16 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unknown Chronicles</title>
+    <link
+      rel="icon"
+      href="./resources/img/wretched_star.png"
+      type="image/icon type"
+    />
     <link rel="stylesheet" href="./resources/style/style.css" />
   </head>
   <body>
     <div id="main-wrapper">
       <div id="main-screen">
+        <img
+          src="./resources/img/Bone_Staff.png"
+          alt="Bone Staff"
+          class="bg-image"
+        />
+        <div id="title">
+          <img
+            src="/resources/img/Logo of the Game.png"
+            alt="Unknown Chronicles"
+            class="bg-title"
+          />
+        </div>
         <button id="start-button">Start Game</button>
       </div>
-      <div id="game-container"><canvas id="game-screen"></canvas></div>
+      <div id="lives">
+        <div><img src="/resources/img/corazonFull.png" alt="heart" /></div>
+        <div><img src="/resources/img/corazonFull.png" alt="heart" /></div>
+        <div><img src="/resources/img/corazonFull.png" alt="heart" /></div>
+      </div>
+      <div id="game-container">
+        <canvas id="game-screen"></canvas>
+      </div>
       <div id="game-end"></div>
-    </div>
+    </di>
     <script src="./data/collisions.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/game.js"></script>

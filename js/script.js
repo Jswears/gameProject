@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
             game.player.element.style.transform = "scaleX(-1)";
             break;
           case "ArrowUp":
-            game.player.directionY = -1; 
+            game.player.directionY = -1;
             break;
           case "ArrowRight":
             game.player.directionX = 1;
@@ -73,5 +73,15 @@ window.addEventListener("load", () => {
   // Event listener for the start button click
   startButton.addEventListener("click", function () {
     startGame();
+    let mySound = new Audio("../resources/sounds/music.mp3");
+    mySound.loop = true;
+    mySound.volume = 0.5;
+
+    mySound.addEventListener("timeupdate", function () {
+      if (mySound.currentTime >= mySound.duration - 0.5) {
+        mySound.currentTime = 0;
+      }
+    });
+    mySound.play();
   });
 });
