@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#main-wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-screen {
+  display: none;
+  border: 1px solid #000;
+  position: relative;
+}
+
+#game-container {
+  position: relative;
+}
