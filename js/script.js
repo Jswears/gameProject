@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
             game.player.element.style.transform = "scaleX(-1)";
             break;
           case "ArrowUp":
-            game.player.directionY = -1;
+            game.player.directionY = -1; 
             break;
           case "ArrowRight":
             game.player.directionX = 1;
