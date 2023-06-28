@@ -10,6 +10,7 @@ body {
 #main-wrapper {
   margin-top: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -21,11 +22,13 @@ body {
 }
 
 #game-container {
+  margin-top: 50px;
   position: relative;
   display: none;
 }
 
 #main-screen {
+  margin-top: 150px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,14 +41,11 @@ body {
 }
 
 #lives {
-  position: absolute;
-  top: 0;
-  left: 250px;
   display: none;
 }
 #lives div img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 
 #start-button {
@@ -71,4 +71,9 @@ body {
   box-shadow: none;
   position: relative;
   top: 0.2em;
+}
+
+.bullet {
+  position: absolute;
+  background-color: yellow;
 }

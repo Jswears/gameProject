@@ -1,73 +1,99 @@
+//global scope for the canvas
 const gameScreen = document.querySelector("#game-screen");
 const ctx = gameScreen.getContext("2d");
 
+//Game Class
 class Game {
   constructor() {
+    //Game elements
     this.startScreen = document.getElementById("main-screen");
     this.gameScreen = gameScreen;
     this.gameContainer = document.getElementById("game-container");
     this.gameEndScreen = document.getElementById("game-end");
     this.getLives = document.getElementById("lives");
+    //Player-Boss
     this.player = new Player(this.gameScreen);
     this.boss = new Boss(this.gameScreen);
-    this.height = 320;
-    this.width = 480;
+
+    //Game properties
+    this.width = 960;
+    this.height = 640;
     this.isGameOver = false;
     this.lives = 3;
-    this.animateId;
+    this.animateId = null;
   }
-
+  //Start the game
   start() {
+    this.rederMap();
+    this.renderBoundaries();
+    this.gameLoop();
+  }
+  //Renders the map
+  rederMap() {
+    //Set game size
     this.gameScreen.width = `${this.width}`;
     this.gameScreen.height = `${this.height}`;
+
+    //hidding-showing screens
     this.startScreen.style.display = "none";
     this.gameScreen.style.display = "block";
     this.gameContainer.style.display = "block";
     this.getLives.style.display = "flex";
 
-    ctx.fillRect(0, 0, this.width, this.height);
-    ctx.fillStyle = "white";
-
-    const image = new Image();
-    image.src = "./resources/img/finale2.0.png";
-    image.onload = () => {
-      ctx.drawImage(image, 0, 0);
+    //Draws the map on the screen
+    const map = new Image();
+    map.src = "./resources/img/finalMap.png";
+    map.onload = () => {
+      ctx.drawImage(map, 0, 0);
     };
-
-    this.gameLoop(ctx);
   }
+
+  //Updates the game
   gameLoop() {
+    if (this.player.shootPressed) {
+      console.log("shoot");
+    }
+    this.boss.move();
     this.player.move();
-    // Draw boundaries
+    this.animateId = requestAnimationFrame(() => this.gameLoop());
+  }
+  //Updates player
+  renderBoundaries() {
     boundaries.forEach((boundary) => {
       boundary.draw();
     });
-    this.animateId = requestAnimationFrame(() => this.gameLoop());
   }
 }
 
-const collisionsMap = [];
-for (let i = 0; i < collisions.length; i += 30) {
-  collisionsMap.push(collisions.slice(i, 30 + i));
-}
-
+//creating boundaries
 class Boundary {
-  static width = 16;
-  static height = 16;
+  //defines the size of each boundary
+  static width = 32;
+  static height = 32;
   constructor({ position }) {
     this.position = position;
-    this.width = 16;
-    this.height = 16;
+    this.width = 32;
+    this.height = 32;
   }
+  //draws transparent rectangle representing the boundary, 16px16px
   draw() {
     ctx.fillStyle = "transparent";
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
+//Creates collision map array
 
+const collisionsMap = [];
+for (let i = 0; i < collisions.length; i += 30) {
+  //divides collision array into chunks of 30 elements (width of map)
+  collisionsMap.push(collisions.slice(i, 30 + i));
+}
+
+//Creates boundaries array
 const boundaries = [];
 collisionsMap.forEach((row, i) => {
   row.forEach((symbol, j) => {
+    //If symbol is 103 creates a new boundary, 103 is the number where boundaries are.
     if (symbol === 103)
       boundaries.push(
         new Boundary({
