@@ -14,6 +14,19 @@ class Game {
     //Player-Boss
     this.player = new Player(this.gameScreen);
     this.boss = new Boss(this.gameScreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
+    this.enemy = new Enemy(this.gamescreen);
 
     //Game properties
     this.width = 960;
@@ -50,10 +63,8 @@ class Game {
 
   //Updates the game
   gameLoop() {
-    if (this.player.shootPressed) {
-      console.log("shoot");
-    }
     this.boss.move();
+    this.enemy.move();
     this.player.move();
     this.animateId = requestAnimationFrame(() => this.gameLoop());
   }
@@ -61,6 +72,11 @@ class Game {
   renderBoundaries() {
     boundaries.forEach((boundary) => {
       boundary.draw();
+    });
+  }
+  attackBoss() {
+    this.boss.this.element.addEventListener("click", () => {
+      console.log("hola");
     });
   }
 }

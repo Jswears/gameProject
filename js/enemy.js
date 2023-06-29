@@ -1,17 +1,17 @@
-class Boss {
+class Enemy {
   constructor(gameScreen) {
     this.gameScreen = gameScreen;
     this.gameCanvas = document.getElementById("game-container");
-    this.height = 120;
-    this.width = 120;
-    this.top = 150;
-    this.left = 450;
+    this.height = 40;
+    this.width = 40;
+    this.top = Math.floor(Math.random() * (540 - 0) + 0);
+    this.left = Math.floor(Math.random() * (760 - 0) + 0);
     this.directionX = 0;
     this.directionY = 0;
-    this.health = 100;
+    this.health = 20;
     this.element = document.createElement("img");
 
-    this.element.src = "./resources/img/GrandmasterWarlockIdle.gif";
+    this.element.src = "./resources/img/skeleton_humanoid_large_old.png";
     this.element.style.position = "absolute";
 
     this.element.style.width = `${this.width}px`;
@@ -21,27 +21,23 @@ class Boss {
     this.element.style.left = `${this.left}px`;
 
     this.explosionElement = document.createElement("img");
-    this.explosionElement.src = "/resources/img/cloud_gloom_new.png";
+    this.explosionElement.src = "./resources/img/cloud_gloom_new.png";
     this.explosionElement.style.position = "absolute";
-    this.explosionElement.style.width = "80px";
-    this.explosionElement.style.height = "80px";
+    this.explosionElement.style.width = "20px";
+    this.explosionElement.style.height = "20px";
     this.explosionElement.style.display = "none";
     this.explosionElement.style.zIndex = "9999";
 
     this.gameCanvas.appendChild(this.explosionElement);
 
     this.gameCanvas.appendChild(this.element);
-    let victorySong = new Audio(
-      "./resources/sounds/17 - Victory (1)-[AudioTrimmer.com] (1).mp3"
-    );
-    victorySong.volume = 0.2;
     let attackSound = new Audio("./resources/sounds/hit_enemy.wav");
     attackSound.volume = 0.2;
+
     this.element.addEventListener("click", () => {
       this.health -= 10;
       if (this.health <= 0) {
         this.element.remove();
-        victorySong.play();
       }
       this.explosionElement.style.top = `${this.top}px`;
       this.explosionElement.style.left = `${this.left}px`;

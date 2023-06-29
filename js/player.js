@@ -11,8 +11,6 @@ class Player {
     this.left = 480;
     this.directionX = 0;
     this.directionY = 0;
-    this.shootPressed = false;
-    console.log(this.shootPressed);
     this.health = 100;
     // Player element
     this.element = document.createElement("img");
