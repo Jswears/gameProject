@@ -51,7 +51,6 @@ class Game {
   //Updates the game
   gameLoop() {
     this.boss.move();
-    this.enemy.move();
     this.player.move();
     this.animateId = requestAnimationFrame(() => this.gameLoop());
   }
