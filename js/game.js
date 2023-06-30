@@ -14,19 +14,6 @@ class Game {
     //Player-Boss
     this.player = new Player(this.gameScreen);
     this.boss = new Boss(this.gameScreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
-    this.enemy = new Enemy(this.gamescreen);
 
     //Game properties
     this.width = 960;
