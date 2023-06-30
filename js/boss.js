@@ -21,7 +21,7 @@ class Boss {
     this.element.style.left = `${this.left}px`;
 
     this.explosionElement = document.createElement("img");
-    this.explosionElement.src = "/resources/img/cloud_gloom_new.png";
+    this.explosionElement.src = "./resources/img/cloud_gloom_new.png";
     this.explosionElement.style.position = "absolute";
     this.explosionElement.style.width = "80px";
     this.explosionElement.style.height = "80px";
